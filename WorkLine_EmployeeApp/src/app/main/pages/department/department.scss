@@ -1,0 +1,48 @@
+:host {
+    .summary-item {
+        --border-width: 2px;
+        --border-color: #1c583429;
+        --border-radius: 10px;
+        margin: 15px;
+        margin-bottom: 20px;
+        height: 55px;
+        --min-height: 55px;
+
+        ion-label {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .summary-title {
+            color: #2c3844eb;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 20px;
+            margin-bottom: 5px;
+            margin-top: 8px;
+        }
+
+        .summary-unit {
+            color: var(--ion-color-app-light-blue);
+            font-size: 15px;
+        }
+
+        .summary-value {
+            color: var(--ion-color-app-dark-blue);
+            text-align: right;
+            font-size: 35px;
+            margin-top: 5px;
+        }
+    }
+
+    .accordion-item-state {
+        text-align: right;
+        width: 65%;
+    }
+
+
+    .accordion-item-title {
+        text-align: left;
+        width: 25%;
+    }
+}

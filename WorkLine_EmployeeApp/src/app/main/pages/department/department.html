@@ -1,0 +1,39 @@
+<ion-content class="animated fadeIn">
+    <ion-list>
+        <ion-item class="summary-item" lines="none">
+            <ion-label>
+                <h2 class="summary-title">Members</h2>
+                <h3 class="summary-unit">Month</h3>
+            </ion-label>
+            <ion-text class="summary-value">140</ion-text>
+        </ion-item>
+        <ion-item class="summary-item" lines="none">
+            <ion-label>
+                <h2 class="summary-title">Billing</h2>
+                <h3 class="summary-unit">$</h3>
+            </ion-label>
+            <ion-text class="summary-value">23.800</ion-text>
+        </ion-item>
+        <ion-item class="summary-item" lines="none">
+            <ion-label>
+                <h2 class="summary-title">Production</h2>
+                <h3 class="summary-unit">uds</h3>
+            </ion-label>
+            <ion-text class="summary-value">1.600</ion-text>
+        </ion-item>
+    </ion-list>
+
+    <accordion [title]="'TEAM'" [expand]="true">
+        <ion-item><span class="accordion-item-title">Supervisor 1</span><span class="accordion-item-state">Active</span></ion-item>
+        <ion-item><span class="accordion-item-title">Supervisor 2</span><span class="accordion-item-state">Holiday</span></ion-item>
+        <ion-item (click)="showEmployeePage()"><span class="accordion-item-title">Employee 1</span><span class="accordion-item-state">Off Work</span></ion-item>
+        <ion-item (click)="showEmployeePage()"><span class="accordion-item-title">Employee 2</span><span class="accordion-item-state">Active</span></ion-item>
+        <ion-item (click)="showEmployeePage()"><span class="accordion-item-title">Employee 3</span><span class="accordion-item-state">Inactive</span></ion-item>
+    </accordion>
+
+    <accordion [title]="'TASK'" [expand]="true">
+        <ion-item><span class="accordion-item-title">TASK 1</span><span class="accordion-item-state">Paused</span></ion-item>
+        <ion-item><span class="accordion-item-title">TASK 2</span><span class="accordion-item-state">Ended</span></ion-item>
+        <ion-item><span class="accordion-item-title">TASK 3</span><span class="accordion-item-state">Active</span></ion-item>
+    </accordion>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-content>
+    <ion-row class="day-btn-group">
+        <ion-col size="3">
+            <ion-button expand="full" size="small" class="option-btn" [class.stat_opt]="stat_opt==0"
+                (click)="changeStatOption(0)">Day</ion-button>
+        </ion-col>
+        <ion-col size="3">
+            <ion-button expand="full" size="small" class="option-btn" [class.stat_opt]="stat_opt==1"
+                (click)="changeStatOption(1)">Week</ion-button>
+        </ion-col>
+        <ion-col size="3">
+            <ion-button expand="full" size="small" class="option-btn" [class.stat_opt]="stat_opt==2"
+                (click)="changeStatOption(2)">Month</ion-button>
+        </ion-col>
+        <ion-col size="3">
+            <ion-button expand="full" size="small" class="option-btn" [class.stat_opt]="stat_opt==3"
+                (click)="changeStatOption(3)">Year</ion-button>
+        </ion-col>
+    </ion-row>
+    
+    <ion-row>
+        <ion-col>
+            <ion-list>
+                <ng-template ngFor let-task [ngForOf]="taskList" let-i="index">
+                    <ion-item lines="none">
+                        <div class="reminder-wrapper">
+                            <h2 class="reminder-title">{{task.title}}</h2>
+                            <p class="reminder-detail">{{task.description}}</p>
+                            <p class="reminder-date">{{ getDateString(task.start_date) }} &nbsp;&nbsp;∙&nbsp;&nbsp; {{getTimeString(task.start_date)}}</p>
+                        </div>
+                        <a class="item" class="reminder-edit" float-right (click)="showTasks(task)">
+                            <ion-icon name="brush"></ion-icon>
+                        </a>
+                    </ion-item>
+                </ng-template>                
+            </ion-list>
+        </ion-col>
+    </ion-row>
+    
+</ion-content>

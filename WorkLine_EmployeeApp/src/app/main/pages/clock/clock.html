@@ -1,0 +1,69 @@
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-list style="margin-bottom: 5px;">
+                    <ion-item lines="none">
+                        <ion-text class="input-label">{{status ? 'Active' : 'Deactive'}}</ion-text>
+                        <ion-toggle class="toggle" [(ngModel)]="status" (ionChange)="changeStatus()"></ion-toggle>
+                        <ion-text class="date"> {{getCurrentDateString()}}</ion-text>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+        <ion-row class="clock-row" justify-content-center>
+            <ion-col text-center>
+                <img class="clock-img" src="../../assets/imgs/main/clock.png">
+                <img class="start-img" src="../../assets/imgs/main/play.png" *ngIf="!getWorkState()"
+                    (click)="startTimer()">
+                <img class="end-img" src="../../assets/imgs/main/stop.png" *ngIf="getWorkState()" (click)="endTimer()">
+                <round-clock [values]="getWorkTimeList()" [bgStart]="getStartTimeDegree()" [bgEnd]="getEndTimeDegree()"
+                    [max]="12" [color]="'#32485f'" [background]="'#94d6d5'" [radius]="120" [stroke]="25"
+                    [semicircle]="false" [clockwise]="false" [responsive]="false" [duration]="1500"
+                    [animation]="'easeInOutQuart'" [animationDelay]="0">
+                </round-clock>
+                <p class="clock-time">{{getCurrentTime()}}<span class="clock-hour">H</span></p>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col text-center>
+                <ion-text class="start-title">START</ion-text>
+                <br>
+                <ion-text class="start-time">{{getStartTimeString()}}<span class="clock-hour">H</span></ion-text>
+            </ion-col>
+            <ion-col text-center>
+                <ion-text class="end-title">END</ion-text>
+                <br>
+                <ion-text class="end-time">{{getEndTimeString()}}<span class="clock-hour">H</span></ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row style="padding: 10px 10px;" justify-content-center>
+            <ion-col style="padding:0">
+                <ion-button class="option-btn accumulate-btn-left selected"
+                    [class.accumulate-opt]="accumulateOption == 0" shape="round" expand="full" size="small"
+                    (click)="clickOption(0)">Day
+                </ion-button>
+            </ion-col>
+            <ion-col style="padding:0">
+                <ion-button expand="full" size="small" class="option-btn" [class.accumulate-opt]="accumulateOption == 1"
+                    (click)="clickOption(1)">Month</ion-button>
+            </ion-col>
+            <ion-col style="padding:0">
+                <ion-button class="option-btn accumulate-btn-right" shape="round" expand="full" size="small"
+                    [class.accumulate-opt]="accumulateOption == 2" (click)="clickOption(2)">
+                    Year</ion-button>
+            </ion-col>
+        </ion-row>
+
+        <accordion title="Accumulated" [expand]="true">
+            <ion-item *ngFor="let accumulate of accumulateList"><span>{{accumulate.text}}</span> <span
+                    style="position: absolute; right: 20px;">{{accumulate.hours}}</span></ion-item>
+        </accordion>
+        <ion-row text-center>
+            <ion-col>
+                <ion-button shape="round" class="send-btn" (click)="statisticsPage()">More statistics
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
